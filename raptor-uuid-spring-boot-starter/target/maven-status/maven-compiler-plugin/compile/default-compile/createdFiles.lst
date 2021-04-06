@@ -1,0 +1,3 @@
+com\caosong\uuid\config\UUIDConfiguration.class
+com\caosong\uuid\service\UUIDService.class
+com\caosong\uuid\config\UUIDServiceProperties.class

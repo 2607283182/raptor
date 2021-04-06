@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "com.caosong.uuid",
+      "type": "com.caosong.uuid.config.UUIDServiceProperties",
+      "sourceType": "com.caosong.uuid.config.UUIDServiceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.caosong.uuid.datacenter-id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.caosong.uuid.config.UUIDServiceProperties"
+    },
+    {
+      "name": "com.caosong.uuid.enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.caosong.uuid.config.UUIDServiceProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "com.caosong.uuid.machine-id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.caosong.uuid.config.UUIDServiceProperties"
+    }
+  ],
+  "hints": []
+}
