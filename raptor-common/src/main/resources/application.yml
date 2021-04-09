@@ -1,8 +1,0 @@
-com:
-  caosong:
-    uuid:
-      datacenter-id: 1
-      machine-id: 2
-      enable: true
-server:
-  port: 8090

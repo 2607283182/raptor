@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.caosong.uuid.config.UUIDConfiguration
+com.caosong.raptor.uuid.config.UUIDConfiguration

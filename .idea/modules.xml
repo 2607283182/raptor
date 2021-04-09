@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/raptor.iml" filepath="$PROJECT_DIR$/raptor.iml" />
       <module fileurl="file://$PROJECT_DIR$/raptor-common/raptor-common.iml" filepath="$PROJECT_DIR$/raptor-common/raptor-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/raptor-jwt-spring-boot-starter/raptor-jwt-spring-boot-starter.iml" filepath="$PROJECT_DIR$/raptor-jwt-spring-boot-starter/raptor-jwt-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/raptor-login-service/raptor-login-service.iml" filepath="$PROJECT_DIR$/raptor-login-service/raptor-login-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/raptor-uuid-spring-boot-starter/raptor-uuid-spring-boot-starter.iml" filepath="$PROJECT_DIR$/raptor-uuid-spring-boot-starter/raptor-uuid-spring-boot-starter.iml" />
     </modules>

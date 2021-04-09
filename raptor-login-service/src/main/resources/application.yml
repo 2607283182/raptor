@@ -1,0 +1,16 @@
+server:
+  port: 10000
+com:
+  caosong:
+    raptor:
+      uuid:
+        datacenterId: 1
+        machineId: 1
+      jwt:
+        secret: 4566123123
+        minutes: 10
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_raptor?characterEncoding=utf8&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: sa123
