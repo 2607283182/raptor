@@ -1,5 +1,5 @@
 package com.caosong.raptor.login.controller;
-import com.caosong.common.utils.result.Result;
+import com.caosong.raptor.common.utils.result.Result;
 import com.caosong.raptor.jwt.service.JWTService;
 import com.caosong.raptor.login.entity.TbUser;
 import com.caosong.raptor.uuid.service.UUIDService;

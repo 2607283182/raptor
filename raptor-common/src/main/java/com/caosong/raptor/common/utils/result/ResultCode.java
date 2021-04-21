@@ -1,4 +1,4 @@
-package com.caosong.common.utils.result;
+package com.caosong.raptor.common.utils.result;
 
 /**
  * @Author caosong
