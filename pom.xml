@@ -19,6 +19,8 @@
 
     <!-- 参数配置 -->
     <properties>
+        <raptor-jwt-spring-boot-starter-version>1.0-SNAPSHOT</raptor-jwt-spring-boot-starter-version>
+        <raptor-uuid-spring-boot-starter-version>1.0-SNAPSHOT</raptor-uuid-spring-boot-starter-version>
     </properties>
 
     <dependencyManagement>
