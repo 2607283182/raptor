@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--  参数加载顺序 logback.xml > application.properties > logback-spring.xml -->
+    <!--  参数信息 -->
+    <springProperty scope="context" name="LOG_PATH" source="com.caosong.raptor.log.logPath"
+                    defaultValue="/"/>
+    <springProperty scope="context" name="APP_NAME" source="com.caosong.raptor.log.appName"
+                    defaultValue="/"/>
+    <springProperty scope="context" name="LOG_INFO_PREFIX" source="com.caosong.raptor.log.infoPrefix"
+                    defaultValue="info"/>
+    <springProperty scope="context" name="LOG_INFO_FILE_NAME" source="com.caosong.raptor.log.infoFilePattern"
+                    defaultValue="info-%d{yyyy-MM-dd}.%i.log"/>
+    <springProperty scope="context" name="LOG_ERROR_PREFIX" source="com.caosong.raptor.log.errorPrefix"
+                    defaultValue="error"/>
+    <springProperty scope="context" name="LOG_ERROR_FILE_NAME" source="com.caosong.raptor.log.errorFilePattern"
+                    defaultValue="error-%d{yyyy-MM-dd}.%i.log"/>
+    <!-- 控制台日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%class:%line] %-5level - %msg%n</pattern>
+            <charset>UTF-8</charset> <!-- 此处设置字符集 -->
+        </encoder>
+    </appender>
+
+
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 过滤的级别 -->
+            <level>INFO</level>
+            <!-- 匹配时的操作：接收（记录） -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 不匹配时的操作：拒绝（不记录） -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}/${LOG_INFO_PREFIX}/${LOG_INFO_FILE_NAME}</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>60</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 过滤的级别 -->
+            <level>ERROR</level>
+            <!-- 匹配时的操作：接收（记录） -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 不匹配时的操作：拒绝（不记录） -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}/${LOG_ERROR_PREFIX}/${LOG_ERROR_FILE_NAME}</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>60</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 基于INFO级别处理日志：具体控制台或者文件对日志级别的处理还要看所在appender配置的filter，如果没有配置filter，则使用root配置 -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE_INFO" />
+    </root>
+</configuration>

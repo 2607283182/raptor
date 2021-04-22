@@ -1,11 +1,7 @@
 server:
   port: 10000
-logging:
-  level:
-    root: DEBUG
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} [%class:%line] %-5level - %msg%n"
-    file: "D://springboot00.log.%d{yyyy-MM-dd}.log"
+
+
 
 
 
