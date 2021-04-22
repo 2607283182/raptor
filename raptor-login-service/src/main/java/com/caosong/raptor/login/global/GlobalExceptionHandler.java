@@ -1,5 +1,8 @@
 package com.caosong.raptor.login.global;
 
+import com.caosong.raptor.common.utils.result.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,11 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 @Order(10000)
 public class GlobalExceptionHandler {
+    private Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
     @ResponseBody
     @ExceptionHandler(value = Exception.class)
-    public String exceptionHandler(Exception e){
-        System.out.println("未知异常！原因是:"+e);
-        return "123";
+    public Result exceptionHandler(Exception e){
+        logger.error(e.getMessage());
+        return Result.error("系统异常，请稍后再试。");
     }
 
 }
