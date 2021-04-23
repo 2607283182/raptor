@@ -4,6 +4,9 @@ import com.caosong.raptor.jwt.service.JWTService;
 import com.caosong.raptor.login.entity.TbUser;
 import com.caosong.raptor.uuid.service.UUIDService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisKeyValueTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +21,8 @@ import java.io.UnsupportedEncodingException;
 @RestController
 @RequestMapping("/test")
 public class TestController {
-
+    @Autowired
+    private RedisTemplate<String, Object> template;
     @Autowired
     private UUIDService uuidService;
     @Autowired
@@ -44,6 +48,15 @@ public class TestController {
     public Result getData(@PathParam("token") String token) {
 
         return Result.success();
+
+    }
+    @RequestMapping("/redisTest")
+    public String redisTest(){
+        // https://www.cnblogs.com/caizhaokai/p/11037610.html
+        ValueOperations<String, Object> redisString = template.opsForValue();
+        // SET key value: 设置指定 key 的值
+        redisString.set("strKey1", "hello spring boot redis");
+        return redisString.get("strKey1").toString();
 
     }
 }
